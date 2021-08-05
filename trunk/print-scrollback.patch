@@ -1,0 +1,23 @@
+diff --unified --recursive --text rxvt-unicode-9.26/src/rxvtperl.xs rxvt-unicode-9.26.patched/src/rxvtperl.xs
+--- rxvt-unicode-9.26/src/rxvtperl.xs	2021-05-09 17:04:44.000000000 +0200
++++ rxvt-unicode-9.26.patched/src/rxvtperl.xs	2021-08-05 23:36:31.014964104 +0200
+@@ -1153,6 +1153,7 @@
+ 	OUTPUT:
+         RETVAL
+ 
++
+ void
+ termlist ()
+ 	PPCODE:
+@@ -1348,6 +1349,11 @@
+         RETVAL = rxvt_XKeycodeToKeysym (THIS->dpy, code, index);
+ 	OUTPUT: RETVAL
+ 
++void
++rxvt_term::print_scrollback ()
++	CODE:
++        THIS->scr_printscreen(1);
++
+ int
+ rxvt_term::strwidth (SV *str)
+ 	CODE:
